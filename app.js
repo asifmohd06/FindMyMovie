@@ -10,6 +10,7 @@ const axios = require('axios')
 
 
 
+const url='https://fierce-meadow-34210.herokuapp.com'
 
 app.set("views", path.join(__dirname, 'views'))
 app.set('view engine', 'ejs')
@@ -20,7 +21,7 @@ app.use(express.urlencoded({ extended: true }))
 app.use(methodOverride('_method'))
 app.use(express.static(path.join(__dirname, 'public')))
 
-app.listen(3000, () => {
+app.listen(url, () => {
     console.log('port 3000')
 })
 let showData = []
