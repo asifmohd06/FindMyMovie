@@ -21,7 +21,7 @@ app.use(express.urlencoded({ extended: true }))
 app.use(methodOverride('_method'))
 app.use(express.static(path.join(__dirname, 'public')))
 
-app.listen(3000, () => {
+app.listen(url, () => {
     console.log('port 3000')
 })
 let showData = []
