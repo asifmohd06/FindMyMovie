@@ -10,7 +10,7 @@ const axios = require('axios')
 
 
 
-const url='https://fierce-meadow-34210.herokuapp.com'
+const url= process.env.PORT
 
 app.set("views", path.join(__dirname, 'views'))
 app.set('view engine', 'ejs')
