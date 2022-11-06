@@ -18,6 +18,15 @@ body {
 .text__dim {
     opacity: 0.5;
 }
+.footer__text{
+    color: rgba(84, 86, 87, 0.695);
+}
+.footer__text__links{
+    color: rgba(84, 86, 87, 0.695);
+}
+.footer__text__links:hover{
+    color: rgb(84, 86, 87);
+}
 .navbar-dark{
     background-color:rgba(23, 44, 49, 0.9) !important;
     
