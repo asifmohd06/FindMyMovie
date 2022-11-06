@@ -7,6 +7,9 @@ body {
     background-image: linear-gradient(135deg, rgba(140, 137, 184, 1) 0%, rgba(230, 164, 164, 1) 39%, rgba(0, 212, 255, 1) 100%);
 
 }
+.navbar-dark{
+    background-color:rgba(37, 70, 90, 0.219) !important;
+}
 
 #container {
     margin-top: 4em;

@@ -18,9 +18,13 @@ body {
 .text__dim {
     opacity: 0.5;
 }
+.navbar-dark{
+    background-color:rgba(23, 44, 49, 0.9) !important;
+    
+}
 
 .card {
-    color: aliceblue;
+    color: rgb(255, 255, 255);
     --bs-card-bg: rgba(0, 0, 0, 0);
     --bs-card-border-color: rgba(0, 0, 0, 0);
 
@@ -81,7 +85,7 @@ body {
     text-align: center;
     padding: 0.1em 0.3em;
     border-radius: .5em;
-    color: aliceblue;
+    color: rgb(255, 255, 255);
 }
 .download__btn:hover{
     opacity: 100%;
@@ -170,11 +174,11 @@ body {
 }
 .cast__link{
     text-decoration: none;
-    color: aliceblue;
+    color: rgb(255, 255, 255);
     opacity: 50%;
 }
 .cast__link:hover{
-    color: aliceblue;
+    color: rgb(255, 255, 255);
     opacity: 100%;
 }
 
