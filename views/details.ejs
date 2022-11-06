@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FindMyMovie</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/stylesheets/details.css">
+</head>
+
+<body>
+    <style>
+        body {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgb(0, 0, 0, 0.8)), url(<%= data.background_image %>);
+            height: 110vh;
+            background-size: cover;
+            background-color:rgb(54, 220, 232);
+            background-position: center;
+        }
+    </style>
+
+<nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">FindMyMovie</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled">Disabled</a>
+          </li>
+        </ul>
+        <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+    <div class="container_full ">
+        <div class="card poster__card__div">
+            <div class="card__img">
+                <img src="<%= data.large_cover_image %>" class="img-fluid" alt="" srcset=""
+                onerror=this.src='/images/noimage.jpg'>
+                <% if(!data.large_cover_image){ %> 
+                <div class="card__effect"></div>
+                <% } %> 
+            </div>
+
+        </div>
+
+        <div class="card title__card__div">
+            <div class="details">
+                <h1>
+                    <%= data.title %>
+                </h1>
+                <h5 class="text__dim">Year : <%= data.year %>
+                </h5>
+                <div class="d-flex align-items-baseline"><img src="/images/logo-imdb.svg" alt="" srcset="" class="imdb__img "><h5 class="text__dim"> &nbsp;: <%= data.rating %> 
+                </h5>&nbsp;<h5 class="star">&#11088;</h5></div>
+                <h5 class="text__dim">Duration : <%= data.runtime %> min</h5>
+                <h5 class="text__dim">Genres :
+                    <% data.genres.forEach(el=>{ %>
+                        <span>
+                            <%= el %>
+                        </span>
+                        <% }) %>
+                </h5>
+            </div>
+        </div>
+
+        <div class="card trailer__card__div">
+            <h3>Trailer</h3>
+            <div class="ytdiv">
+                <iframe width="450" height="250" src="https://www.youtube.com/embed/<%= data.yt_trailer_code %> "
+                    title="The Highwayman Trailer" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen class="ytvideo ">
+                </iframe>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3 class="text__start">Plot Summary</h3>
+            <p class="text__dim">
+                <%= data.description_full %>
+            </p>
+        </div>
+
+        <div class="card torrent__card__div">
+            <h3>Torrents</h3>
+            <div class="torrentcontainer">
+                <% const xyz=data.torrents %>
+                    <div class="torrentbtndiv">
+                        <% data.torrents.forEach(torrent=>{ %>
+                            <div class="  torrentbtn mb-1" id='<%= torrent.quality %>' data-set=<%=torrent.hash %> >
+                                <%= torrent.quality %>
+                            </div>
+                            <% }) %>
+                    </div>
+
+                    <div class="torrent__row__1">
+                        <div>
+                            <h4 class="text__light_dim">Type</h4>
+                            <h6 id="type" class="text__dim">
+                                <%= data.torrents[0].type %>
+                            </h6>
+                        </div>
+
+                        <div>
+                            <h4 class="text__light_dim">Size</h4>
+                            <h6 id="size" class="text__dim">
+                                <%= data.torrents[0].size %>
+                            </h6>
+                        </div>
+                    </div>
+
+                    <div class="torrent__row__2">
+
+                        <div>
+                            <h4 class="text__light_dim">Seeds</h4>
+                            <h6 id="seeds" class="text__dim">
+                                <%= data.torrents[0].seeds %>
+                            </h6>
+                        </div>
+
+                        <div class="link__div">
+                            <h4 class="text__light_dim">Torrents</h4>
+                            <div class="download__btns__div">
+                            <h6 id="peers" class="">
+                                <a href="https://yts.mx/torrent/download/<%= data.torrents[0].hash %>" rel="nofollow" title="Download  <%= data.title %> <%= data.torrents[0].quality %> Torrent"><button class="download__btn text__dim">Download</button></a>
+                            </h6>
+                            <h6 id="link" class="">
+                                <a href="magnet:?xt=urn:btih:<%= data.torrents[0].hash%>&dn=<%= data.title%>-<%= data.torrents[0].quality %>-<%= data.torrents[0].size %>-YTS.MX&tr=http://track.one:1234/announce&tr=udp://track.two:80&tr=udp://open.demonii.com:1337/announce&tr=udp://tracker.openbittorrent.com:80&tr=udp://tracker.coppersurfer.tk:6969&tr=udp://glotorrents.pw:6969/announce&tr=udp://tracker.opentrackr.org:1337/announce&tr=udp://torrent.gresille.org:80/announce&tr=udp://p4p.arenabg.com:1337&tr=udp://tracker.leechers-paradise.org:6969"><button class="download__btn text__dim">Magnet</button></a>
+                            </h6>
+                        </div>
+                        </div>
+
+                    </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>Screenshots</h3>
+            <div class="carousel__div">
+                <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner ">
+                        <div class="carousel-item active ">
+                            <img src="<%= data.large_screenshot_image1 %>" class="d-block w-100" alt="NO IMAGE" >
+                        </div>
+                        <div class="carousel-item">
+                            <img src="<%= data.large_screenshot_image2 %>" class="d-block w-100" alt="NO IMAGE">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="<%= data.large_screenshot_image3 %>" class="d-block w-100" alt="NO IMAGE">
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="card ">
+            <h3>Casts</h3>
+            <div class="cast__container">
+                <% if(data.cast){ %> 
+                <% data.cast.forEach(cast=>{ %>
+                    <div class="cast__data">
+                        <div class="cast__img__div">
+
+                            <a href="https://www.imdb.com/name/nm<%=cast.imdb_code %>/">
+                                <img src="<%= cast.url_small_image %> " class="cast__img" alt="" srcset="" onerror=this.src='/images/default_avatar.jpg'>
+                            </a>
+                        </div>
+                        
+                        <div class="cast__name__div">
+                                <a href="https://www.imdb.com/name/nm<%=cast.imdb_code %>/" class="cast__link">
+                                    <h6 class="cast__name"><%= cast.name %></h6>
+                                </a>
+                        </div>
+                    </div>
+                    <% }) %>
+                    <% }else{ %> 
+                        <h6 class="text__dim">This data is unavailable </h6>
+                    <% } %> 
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        const torrents = <%- JSON.stringify(xyz) %>
+        const name = <%- JSON.stringify(data.title) %>
+    </script>
+    <script src="/javascripts/scriptDetails.js"></script>
+
+</body>
+
+</html>
