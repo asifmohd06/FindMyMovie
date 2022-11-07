@@ -69,13 +69,20 @@
                 <div class="d-flex align-items-baseline"><img src="/images/logo-imdb.svg" alt="" srcset="" class="imdb__img "><h5 class="text__dim"> &nbsp;: <%= data.rating %> 
                 </h5>&nbsp;<h5 class="star">&#11088;</h5></div>
                 <h5 class="text__dim">Duration : <%= data.runtime %> min</h5>
-                <h5 class="text__dim">Genres :
-                    <% data.genres.forEach(el=>{ %>
-                        <span>
-                            <%= el %>
-                        </span>
+                <div class="genres__container">
+                    <div class="genres__heading">
+                        <h5 class="text__dim">Genres : </h5>
+                    </div>
+                    <div class="genres">
+                        <h5 class="text__dim">
+                        <% data.genres.forEach(el=>{ %>
+                            <span>
+                                <%= el %>
+                            </span>
                         <% }) %>
-                </h5>
+                        </h5>
+                    </div>
+                </div>
             </div>
         </div>
 

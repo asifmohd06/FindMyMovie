@@ -2,7 +2,7 @@
     box-sizing: border-box;
     padding: 0;
     margin: 0;
-    
+
 }
 
 body {
@@ -18,19 +18,23 @@ body {
 .text__dim {
     opacity: 0.5;
 }
-.footer__text{
+
+.footer__text {
     color: rgba(84, 86, 87, 0.695);
 }
-.footer__text__links{
+
+.footer__text__links {
     text-decoration: none;
     color: rgba(84, 86, 87, 0.695);
 }
-.footer__text__links:hover{
+
+.footer__text__links:hover {
     color: rgb(84, 86, 87);
 }
-.navbar-dark{
-    background-color:rgba(23, 44, 49, 0.9) !important;
-    
+
+.navbar-dark {
+    background-color: rgba(23, 44, 49, 0.9) !important;
+
 }
 
 .card {
@@ -47,7 +51,8 @@ body {
     overflow: hidden;
     max-width: 10rem;
 }
-.card__effect{
+
+.card__effect {
     background-color: rgba(204, 191, 177, 0.475);
     position: absolute;
     min-width: 100%;
@@ -56,7 +61,7 @@ body {
     top: 0;
 }
 
-.imdb__img{
+.imdb__img {
     min-height: 1.2em;
 }
 
@@ -75,6 +80,20 @@ body {
     border: solid 2px rgb(122, 130, 131);
 }
 
+.genres__container {
+    display: grid;
+    grid-template-columns: repeat(2, 6em);
+}
+
+.genres__heading {
+    grid-column: 1/2;
+}
+
+.genres {
+    grid-column: 2/3;
+    text-align: left;
+}
+
 .torrentbtn {
     /* grid-row: 1/4; */
     text-align: center;
@@ -86,11 +105,12 @@ body {
     opacity: 70%;
 }
 
-.torrentbtn:hover{
+.torrentbtn:hover {
     opacity: 100%;
-    
+
 }
-.download__btn{
+
+.download__btn {
     background-color: rgba(141, 135, 135, 0.332);
     text-align: center;
     padding: 0.1em 0.3em;
@@ -98,17 +118,19 @@ body {
     color: rgb(255, 255, 255);
     opacity: 70%;
 }
-.download__btn:hover{
+
+.download__btn:hover {
     opacity: 100%;
 }
 
-.download__btns__div{
+.download__btns__div {
     display: flex;
     align-items: center;
     justify-content: center;
     column-gap: 0.5em;
 }
-.magnet__btn{
+
+.magnet__btn {
     opacity: 100%;
 }
 
@@ -157,42 +179,49 @@ body {
     max-height: 20em;
 
 }
-.cast__data{
+
+.cast__data {
     display: grid;
-    grid-template-columns: repeat(3,1fr);
+    grid-template-columns: repeat(3, 1fr);
     padding: 0.5em 0;
-    
+
 }
 
-.cast__img{
+.cast__img {
     grid-column: 1;
     border-radius: 50%;
     border: 2px solid rgb(185, 180, 180);
 }
-.cast__name{
+
+.cast__name {
     grid-column: 2/4;
 }
-.cast__container{
+
+.cast__container {
     padding: 0.5em 0;
     background-color: rgba(79, 79, 84, 0.175);
     border-radius: .5em;
     border: solid 2px rgb(122, 130, 131);
 }
-.cast__name__div{
+
+.cast__name__div {
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.cast__link{
+
+.cast__link {
     text-decoration: none;
     color: rgb(255, 255, 255);
     opacity: 50%;
 }
-.cast__link:hover{
+
+.cast__link:hover {
     color: rgb(255, 255, 255);
     opacity: 100%;
 }
-.link__effect{
+
+.link__effect {
     text-decoration: none;
     color: rgb(255, 255, 255);
 }
@@ -270,7 +299,7 @@ body {
     text-align: center;
     grid-area: seven;
     padding: 0 1em;
-    
+
 }
 
 
@@ -303,14 +332,20 @@ body {
         display: flex;
         align-items: flex-start;
     }
-    .carousel__div{
+
+    .carousel__div {
         margin: 0 0;
     }
+
     .card__img {
-       
+
         max-width: 15rem;
     }
+    .genres__container{
+        grid-template-columns: repeat(2, 7em);
+    }
 }
-.carousel__img{
+
+.carousel__img {
     object-fit: fill;
 }
