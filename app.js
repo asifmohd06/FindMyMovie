@@ -10,7 +10,7 @@ const axios = require('axios')
 
 
 
-const url= process.env.PORT
+const url= process.env.PORT || 3000
 
 app.set("views", path.join(__dirname, 'views'))
 app.set('view engine', 'ejs')
