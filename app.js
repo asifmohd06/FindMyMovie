@@ -87,13 +87,6 @@ app.get('/details/:id', async (req, res) => {
     const options = {
         method: 'GET',
         url: 'https://yts.torrentbay.to/api/v2/movie_details.json',
-        // url: 'https://advanced-movie-search.p.rapidapi.com/movies/getdetails',
-        // params: { movie_id: id },
-        // headers: {
-        //     'X-RapidAPI-Key': '928b3191ecmsh8b625ce48ff10abp1d2171jsn33bd35afd251',
-        //     'X-RapidAPI-Host': 'advanced-movie-search.p.rapidapi.com'
-        // }
-
         params: {
             movie_id: id,
             with_images: true,
