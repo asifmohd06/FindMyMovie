@@ -37,7 +37,7 @@ app.get("/", async (req, res) => {
     .then((response) => {
       const result = response.data.data.movies;
       if (result) {
-        result.map((element) => {
+        result.forEach((element) => {
           showData.push(element);
         });
       }
