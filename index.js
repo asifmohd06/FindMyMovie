@@ -31,6 +31,9 @@ app.get("/", async (req, res) => {
     params: {
       sort_by: "year",
     },
+    headers: {
+      "User-Agent": "axios 1.1.3",
+    },
   };
   await axios
     .request(options)
