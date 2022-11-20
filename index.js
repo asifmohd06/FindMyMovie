@@ -26,7 +26,7 @@ let showData = [];
 app.get("/", async (req, res) => {
   showData = [];
   const options = {
-    method: "GET",
+    method: "POST",
     url: "https://yts.torrentbay.to/api/v2/list_movies.json",
     params: {
       sort_by: "year",
