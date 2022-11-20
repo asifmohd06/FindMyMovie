@@ -41,14 +41,13 @@ app.get("/", async (req, res) => {
           showData.push(element);
         });
       }
-
-      res.render("home", { showData });
     })
     .catch((error) => {
       console.log(error);
-      // res.render("error");
-      res.send(showData);
+      res.render("error");
     });
+
+  res.render("home", { showData });
 });
 
 app.get("/search", async (req, res) => {
